@@ -1,0 +1,23 @@
+{
+  "name": "epic.jsa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/epicINC/epic.jsa.git"
+  },
+  "keywords": [
+    "js",
+    "analyser"
+  ],
+  "author": "S",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/epicINC/epic.jsa/issues"
+  },
+  "homepage": "https://github.com/epicINC/epic.jsa#readme"
+}
