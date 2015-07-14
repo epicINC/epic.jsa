@@ -9,7 +9,7 @@
 })(this, function()
 {
 
-  var spliter= { params: new RegExp(), body: new RegExp() };
+  var spliter = { params: new RegExp(), body: null };
 
   spliter.params.compile(/(\w+)\s*(\/\*([\s\S]*?)\*\/)*\s*,?\s*((\/\/(.*)$)|(\/\*([\s\S]*?)\*\/))*/gm);
 
@@ -17,8 +17,8 @@
 	{
 		parse: function(fn)
 		{
-			var result = { body: fn.toString() };
-      result.params = this.params.parse(result.body);
+      var result = { body: fn.toString() };
+      result.params = this.params.parse(fn.toString())
 			return result;
 		},
 		strip: function(code)
@@ -42,10 +42,7 @@
         if (typeof(code) === 'function')
           return this.parse(code.toString());
 
-        var result = {body: this.strip(code)}
-        result.params = this.item.parse(result.body);
-
-        return result;
+        return this.item.parse(this.strip(code));
       },
       strip: function(code)
       {
