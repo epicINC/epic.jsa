@@ -1,3 +1,5 @@
+"use strict";
+
 (function (window, factory)
 {
     if (module)
@@ -46,7 +48,7 @@
       },
       strip: function(code)
       {
-        var start = code.indexOf('function') + 8;
+        var start = code.indexOf('function') + 8, end;
         start = code.indexOf('(', 8);
         end = this.boundary(code, start);
         return code.substring(start +1, end);
@@ -93,6 +95,13 @@
     }
 
 	};
+
+
+
+  var test = '() => e.id';
+
+  var result = analyser.params.item.parse('eee = string(")1") // {xxx:1, bbb:2} \n,k = "2" /* a:b, c:d */,    ddd');
+  console.log(result);
 
   return analyser;
 
